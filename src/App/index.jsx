@@ -10,7 +10,6 @@ import AboutPlanet from '../Pages/AboutPlanet/about.jsx';
 function App () {
     return(
         <>
-            <h2>App index.jsx</h2>
                 <Routes>
                     <Route path='/' element={<Sections />}/>
                     <Route path='/planets' element={<Planets />}/>

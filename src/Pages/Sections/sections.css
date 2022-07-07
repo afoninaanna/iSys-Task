@@ -1,0 +1,11 @@
+body{
+    position: relative;
+}
+.parentBtns{
+    position: absolute;
+    top: 200px;
+    left: 350px;
+}
+.planetsBtn{
+    color: beige;
+}
