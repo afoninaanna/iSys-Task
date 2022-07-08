@@ -1,0 +1,19 @@
+body {
+    position: relative;
+    background-color: aliceblue;
+}
+.header{
+    position: absolute;
+    background-color: aqua;
+    width: 200px;
+    height: 50px;
+    left: 540px;
+    border-radius: 50px;
+    display: flex;
+    gap: 25px;
+    padding-left: 40px;
+}
+.headerCategory, .headerPlanets {
+    text-decoration: none;
+    color: #000;
+}

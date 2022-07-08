@@ -4,19 +4,31 @@ import Button from "../../Component/button.jsx";
 import { Link } from "react-router-dom";
 
 function Sections(){
+    async function getResponse() {
+        let response = await fetch('https://swapi.dev/api//');
+        let content = await response.json();
+        let buttons = document.querySelectorAll('Button');
+        
+        let i = -1;
+        for (let key in content) {
+            buttons[i + 1].textContent = `${key}`;
+            i++;
+        }
+    }
+    getResponse();
     return(
         <div className={styles.parentBtns}>
             <div>
-                <Button>People</Button>
+                <Button></Button>
                 <Link to="/planets">
-                    <Button className={styles.planetsBtn}>Planets</Button>
+                    <Button className={styles.planetsBtn}></Button>
                 </Link>
-                <Button>Films</Button>
+                <Button></Button>
             </div>
             <div>
-                <Button>Species</Button>
-                <Button>Vehicles</Button>
-                <Button>Starships</Button>
+                <Button></Button>
+                <Button></Button>
+                <Button></Button>
             </div>
         </div>
     )

@@ -1,0 +1,9 @@
+.parentBtns {
+    position: absolute;
+    top: 200px;
+    left: 350px;
+}
+
+.planetFirst, .planetSecond {
+    color: beige;
+}
