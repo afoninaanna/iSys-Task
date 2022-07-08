@@ -7,13 +7,39 @@ function MoreInfo(){
         let content = await response.json();
 
         let list = document.querySelector('.listFirstPlanet');
-
         let key;
         for (key in content) {
-            // if(content[key].startsWith('https')){
-            //     getResponse(`${content[key]}`);
-            // }
-            if ((key === 'residents') || (key === 'created') || (key === 'edited') || (key === 'films') || (key === 'url')) {
+            if (key === 'residents'){
+                let li = document.querySelector('.residents');
+                li.innerHTML += `${key}`
+                for(let link of content[key]){
+                    let response = await fetch(`${link}`);
+                    let content = await response.json();
+                    
+                    li.innerHTML += `
+                    <ul>
+                        <li>${content.name}</li>
+                    </ul>
+                    `
+                }
+            }
+            if (key === 'films') {
+                let li = document.querySelector('.films');
+                li.innerHTML += `${key}`
+                for (let link of content[key]) {
+                    let response = await fetch(`${link}`);
+                    let content = await response.json();
+                    let li = document.querySelector('.films');
+
+
+                    li.innerHTML += `
+                    <ul>
+                        <li>${content.title}</li>
+                    </ul>
+                    `
+                }
+            }
+            if ((key === 'created') || (key === 'edited') || (key === 'url')) {
                 list.innerHTML += `
                 <li>${key} : ${content[key]}</li>
                 `
@@ -27,6 +53,8 @@ function MoreInfo(){
         <div className={styles.containerInfo}>
             <h2>Доп.сведения</h2>
             <ul className='listFirstPlanet'>
+                <li className='residents'></li>
+                <li className="films"></li>
             </ul>
         </div>
     )
